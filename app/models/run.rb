@@ -106,7 +106,11 @@ class Student
     end
 
     def grade_percentage
-        BoatingTest.all.boat_test_status
+        total_test = BoatingTest.all.count{|boating_test| boating_test.student == self}
+        passing_test = BoatingTest.all.count{|boating_test| boating_test.student == self && boating_test.boat_test_status == "passed"}
+        grade = passing_test/total_test.to_f
+        binding.pry
+        0
     end
 end
 
@@ -133,6 +137,11 @@ spongebob.all_instructors
 puff= Instructor.new("Ms.Puff")
 krabs= Instructor.new("Mr.Krabs")
 
-# no_crashing = spongebob.add_boating_test("Don't Crash 101", "pending", puff)
-# power_steering_failure = patrick.add_boating_test("Power Steering 202", "failed", puff)
-# power_steering_pass = patrick.add_boating_test("Power Steering 201", "passed", krabs)
+no_crashing = spongebob.add_boating_test("Don't Crash 101", "pending", puff)
+x = spongebob.add_boating_test("Don't Crash 101", "passed", puff)
+y = spongebob.add_boating_test("Don't Crash 101", "failed", puff)
+z = spongebob.add_boating_test("Don't Crash 101", "passed", puff)
+power_steering_failure = patrick.add_boating_test("Power Steering 202", "failed", puff)
+power_steering_pass = patrick.add_boating_test("Power Steering 201", "passed", krabs)
+
+spongebob.grade_percentage
