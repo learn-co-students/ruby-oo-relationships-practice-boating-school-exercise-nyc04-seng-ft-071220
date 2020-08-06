@@ -25,9 +25,12 @@ class Student
         BoatingTest.new(self, boating_test_name, boating_test_status, instructor)
     end
 
-    def self.find_student 
+    def self.find_student(fist_name)
         # binding.pry
-        # Student.all.find do |student|
+        Student.all.find do |student|
+            student.first name == fist_name 
+        end 
+
         
     end 
 
