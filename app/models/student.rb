@@ -23,8 +23,7 @@ class Student
     def all_instructors
         student_tests = BoatingTest.all.select {|test| test.student == self}
 
-        student_tests.map {|tests| tests.instructor}
-        
+        student_tests.map {|tests| tests.instructor.name}  
     end
 
 end
