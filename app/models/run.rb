@@ -106,7 +106,12 @@ class Student
     end
 
     def grade_percentage
-        BoatingTest.all.boat_test_status
+        pass_count = BoatingTest.all.count{|boating_test|
+            boating_test.boat_test_status == "passed" 
+        }
+        total = BoatingTest.all.count{||
+            boat_test_status
+        }
     end
 end
 
