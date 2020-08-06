@@ -1,5 +1,5 @@
 class Instructor
-    attr_accessor :name, :boatingtest
+    attr_accessor :name, :boatingtest, :student
 
     @@all = []
 
@@ -8,7 +8,7 @@ class Instructor
         @@all << self
     end
 
-    def Instructor.all
+    def self.all
         @@all
     end
 

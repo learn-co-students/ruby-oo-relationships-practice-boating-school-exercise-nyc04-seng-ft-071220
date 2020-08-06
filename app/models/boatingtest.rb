@@ -11,7 +11,7 @@ class BoatingTest
         @@all << self
     end
 
-    def BoatingTest.all
+    def self.all
         @@all
     end
 end
