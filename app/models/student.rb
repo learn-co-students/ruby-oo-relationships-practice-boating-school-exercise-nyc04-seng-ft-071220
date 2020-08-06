@@ -19,7 +19,11 @@ class Student
 
     def add_boating_test
         # binding.pry
+<<<<<<< HEAD
         BoatingTest.new(self, boat, boat_test_status,instructor)
+=======
+        BoatingTest.new(self, "boat", "boat_test_status",Instructor.new("Swilvia"))
+>>>>>>> c51cb692a0b58b33fe4a985e6503f21fdef04c58
         # binding.pry
         # 0
     end
