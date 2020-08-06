@@ -19,7 +19,7 @@ class Student
 
     def add_boating_test
         # binding.pry
-        BoatingTest.new(self, "boat", "boat_test_status","instructor")
+        BoatingTest.new(self, boat, boat_test_status,instructor)
         # binding.pry
         # 0
     end
