@@ -1,3 +1,0 @@
-class BoatingTest
-
-end
