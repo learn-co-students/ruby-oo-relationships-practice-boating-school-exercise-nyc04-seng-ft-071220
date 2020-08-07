@@ -9,6 +9,8 @@ patrick= Student.new("Patrick")
 puff= Instructor.new("Ms.Puff")
 krabs= Instructor.new("Mr.Krabs")
 
-no_crashing = spongebob.add_boating_test("Don't Crash 101", "pending", puff)
+no_crashing = patrick.add_boating_test("blah", "pending", puff) 
+power_steering= patrick.add_boating_test("derp", "pending", puff)
 
-p spongebob.all_instructors
+pp puff.fail_student(patrick, "derp")
+
