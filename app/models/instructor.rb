@@ -70,4 +70,5 @@ class Instructor
         student_array.map(&:student)
     end 
     
+    
 end
