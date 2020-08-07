@@ -1,6 +1,6 @@
 require 'pry'
 class Student
-    attr_accessor :first_name, :student, :instructor, :boatingtest
+    attr_accessor :first_name, :boatingtest, :instructor
 
     @@all = []
 
@@ -13,35 +13,45 @@ class Student
         @@all
     end
 
-    def all_instructors
-        binding.pry
-        BoatingTest.all.select do |test_info|
-            test_info.instructor == self
-        end 
-    end 
-
-
     def add_boating_test(boating_test_name, boating_test_status, instructor)
         BoatingTest.new(self, boating_test_name, boating_test_status, instructor)
     end
 
-    def self.find_student(fist_name)
+
+    def all_instructors
+    #     # binding.pry
+    student_arr = BoatingTest.all.select do |test_info|
+            test_info.student == self
+        end
+        student_arr.map do |student_info|
+            student_info.instructor
+        end 
+    end 
+        
+   
+    def self.find_student(first_name)
         # binding.pry
         Student.all.find do |student|
-            student.first name == fist_name 
-        end 
-
-        
+            student.first_name == student.first_name 
+        end  
     end 
-
 
 end
 
 
 
-# Student#all_instructors should return an array of instructors with
-#  whom this specific student took a boating test.
+spongebob = Student.new("Spongebob")
+patrick= Student.new("Patrick")
 
-# Student.find_student will take in a first name and
-#  output the student (Object) with that name
+
+#  Invoking the method 
+ p Student.find_student("Patrick")
+
+ patrick.all_instructors
+
+
+# binding.pry
+
+
+
 
