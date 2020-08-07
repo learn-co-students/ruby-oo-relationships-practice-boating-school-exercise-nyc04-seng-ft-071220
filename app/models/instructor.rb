@@ -36,9 +36,6 @@ class Instructor
     def all_students
         Student.all.select { |student| student.instructor == self}
     end
-
-
-
 end
 
 
