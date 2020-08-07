@@ -1,5 +1,5 @@
 class BoatingTest
-    attr_accessor :student, :instructor, :boating_test_name, :boating_test_status
+    attr_accessor :student, :boating_test_name, :boating_test_status, :instructor
 
     @@all = []
 
@@ -17,4 +17,3 @@ class BoatingTest
 end
 
 
-power_steering_pass = patrick.add_boating_test("Power Steering 201", "passed", krabs)
