@@ -25,27 +25,35 @@ require 'pry'
 
 class Instructor
 
-    attr_accessor :name, :student 
-    @@all = []
-
-    def initialize(name_arg)
-        @name = name_arg
-        @@all << self
-    end
-
-    def self.all
-        @@all
-    end
-
-    def passed_students
-        Student.all.map do |student| student.boating_test_status == "passed" && student.instructor == self
-            binding.pry
+        attr_accessor :name
+    
+        @@all= []
+    
+        def initialize(name)
+            @name = name
+            @@all << self
         end
-    end
-        #find students with this self instructor
-        #filter the students who passed the boating test
-        #return as an array
-        # == "passed"
+    
+        def self.all
+            @@all
+        end
+    
+        def pass_student(student, test_name)
+            testtopass= BoatingTest.all.find{|test| test.student.first_name == student.first_name && test.name == test_name}
+            if testtopass
+                testtopass.status= "passed"
+            else
+                BoatingTest.new(student, test_name, "passed", self)
+            end
+        end
+    
+        def fail_student(student, test_name)
+            testtofail= BoatingTest.all.find{|test| test.student.first_name == student.first_name && test.name == test_name}
+            if testtofail
+                testtofail.status= "failed"
+            else
+                BoatingTest.new(student, test_name, "failed", self)
+            end
+        end
+    
 end
-
-# student1= Student.new("Bob", "SAT", "passed", "Sylwia")

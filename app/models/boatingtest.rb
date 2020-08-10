@@ -16,24 +16,23 @@
 # **NOTE**: Test status has three options only ("passed", "failed" and "pending")
 
 class BoatingTest
-
-    @@all = []
-    attr_accessor :student, :boating_test_name, :boating_test_status, :instructor
-
-
-    def initialize(student, boating_test_name, boating_test_status, instructor)
-        @student = student
-        @boating_test_name = boating_test_name
-        @boating_test_status = boating_test_status
-        @instructor = instructor
-        @@all << self
+    attr_accessor :student, :name, :status, :instructor
+    
+    @@all= []
+    
+    def initialize(student, name, status, instructor)
+      @student = student
+      @name = name
+      @status = status
+      @instructor = instructor
+      @@all << self
     end
-
+    
     def self.all
-        @@all
+      @@all
     end
-
-end
+    
+    end
 
 # test1 = BoatingTest.new("Bob", "SAT", "passed", "Sylwia")
 
